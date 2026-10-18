@@ -1,0 +1,28 @@
+
+Server akan berjalan di `http://localhost:3000`. Buka di browser, login ke Google, dan mulai upload media.
+
+### e. Deploy ke Platform Publik
+
+- **Render**: Buat “Web Service” → pilih repo → pilih “Node” → set `npm start` sebagai command.  
+- **Heroku**: `heroku create` → `git push heroku main`.  
+- **Vercel**: Pilih “Import Project” → pilih repo → pilih “Node” → deploy.
+
+> Pastikan `PORT` environment variable diatur (Render & Heroku otomatis menentukannya).
+
+## 📄 Struktur Folder
+
+- `index.html` – halaman utama.  
+- `style.css` – styling.  
+- `script.js` – logika front‑end (login, upload, preview).  
+- `server.js` – backend Express + Google Drive API.  
+- `package.json` – dependensi.  
+
+## 📌 Catatan
+
+- File yang di‑upload disimpan di Google Drive.  
+- Data portfolio (text, image‑IDs, dll.) disimpan di `db.json` (lowdb).  
+- Untuk publikasi, Anda bisa men‑share `https://<host>/portfolio?id=<id>` sebagai link view.  
+
+---
+
+Happy coding! 🚀
