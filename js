@@ -81,3 +81,59 @@ app.post('/api/upload-to-drive', upload.single('file'), async (req, res) => {
 // ----------  Start server ----------
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
+document.getElementById('login-google').addEventListener('click', () => {
+  const clientId = 'YOUR_CLIENT_ID';
+  const redirectUri = 'http://localhost:3000/oauth2callback';
+  const scope = encodeURIComponent('https://www.googleapis.com/auth/drive.file');
+  window.location = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}&access_type=offline&prompt=consent`;
+});
+// Misalkan ada input file:
+<input type="file" id="file-input" />
+
+<script>
+document.getElementById('file-input').addEventListener('change', async e => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const formData = new FormData();
+  formData.append('file', file);
+
+  const res = await fetch('http://localhost:3000/api/upload-to-drive', {
+    method: 'POST',
+    body: formData
+  });
+
+  const data = await res.json();
+  if (data.success) {
+    console.log('File ID:', data.id);
+    console.log('View link:', data.viewLink);
+    console.log('Download link:', data.downloadLink);
+    // Simpan data ID ke database (misalnya di localStorage)
+  } else {
+    alert('Upload gagal: ' + data.error);
+  }
+});
+</script>
+// Setelah upload berhasil
+localStorage.setItem('portfolio_images', JSON.stringify([...prev, data.id]));
+// Simpan portfolio
+app.post('/api/portfolio', async (req, res) => {
+  const { id, text, images, videos, audio, bg } = req.body; // images, videos, audio, bg adalah array string (file‑IDs)
+  // ... simpan ke db seperti contoh sebelumnya
+});
+// Mengambil portfolio
+const res = await fetch(`http://localhost:3000/api/portfolio/${id}`);
+const data = await res.json();
+
+// Menampilkan gambar
+data.images.forEach(id => {
+  const img = document.createElement('img');
+  img.src = `https://drive.google.com/uc?id=${id}`;
+  gallery.appendChild(img);
+});
+// Setelah upload
+const drive = google.drive({ version: 'v3', auth: oauth2Client });
+
+await drive.permissions.create({
+  fileId: response.data.id,
+  requestBody:
