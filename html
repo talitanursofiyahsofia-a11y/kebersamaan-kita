@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Portofolio Saya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="fade-in">
+    <h1>Portofolio Saya</h1>
+    <button id="toggle-settings">⚙️</button>
+  </header>
+
+  <main>
+    <!-- Kenangan -->
+    <section id="kenangan" class="section fade-in">
+      <h2>Kenangan Bersama</h2>
+      <div id="gallery"></div>
+    </section>
+
+    <!-- Audio -->
+    <section id="audio-section" class="section fade-in">
+      <h2>Audio Latar</h2>
+      <audio id="audio-player" controls></audio>
+    </section>
+
+    <!-- Teks -->
+    <section id="text-section" class="section fade-in">
+      <h2>Teks Kenangan</h2>
+      <p id="kenangan-text"></p>
+    </section>
+  </main>
+
+  <footer class="fade-in">
+    <p>© 2026 Portofolio Saya</p>
+  </footer>
+
+  <!-- Settings Panel -->
+  <div id="settings">
+    <h3>Pengaturan</h3>
+
+    <!-- Background -->
+    <label for="bg-input">Latar Belakang (Gambar/Video)</label>
+    <div id="bg-preview"><span>Preview</span></div>
+    <input type="file" id="bg-input" accept="image/*,video/*">
+    <button id="save-bg">Simpan Latar</button>
+
+    <hr>
+
+    <!-- Teks -->
+    <label for="text-input">Teks Kenangan</label>
+    <textarea id="text-input"></textarea>
+    <button id="save-text">Simpan Teks</button>
+
+    <hr>
+
+    <!-- Gambar -->
+    <label for="image-input">Upload Gambar (max 24)</label>
+    <input type="file" id="image-input" accept="image/*" multiple>
+    <button id="save-images">Simpan Gambar</button>
+
+    <hr>
+
+    <!-- Video -->
+    <label for="video-input">Upload Video (max 5)</label>
+    <input type="file" id="video-input" accept="video/*" multiple>
+    <button id="save-videos">Simpan Video</button>
+
+    <hr>
+
+    <!-- Audio -->
+    <label for="audio-input">Upload Audio Latar</label>
+    <input type="file" id="audio-input" accept="audio/*">
+    <button id="save-audio">Simpan Audio</button>
+
+    <hr>
+
+    <!-- Bagikan -->
+    <h4>Bagikan Karya</h4>
+    <button id="gen-view-link">Buat Link Tampilan</button>
+    <button id="gen-edit-link">Buat Link Edit</button>
+    <p id="share-output" style="word-wrap:break-word;"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+      </html>
