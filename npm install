@@ -1,0 +1,10 @@
+
+### c. Konfigurasi Google Drive
+
+1. Buka **Google Cloud Console** → **APIs & Services** → **Credentials**.  
+2. Buat **OAuth 2.0 Client ID** (Web application).  
+3. Tambahkan `http://localhost:3000` sebagai *Authorized JavaScript origins*.  
+4. Tambahkan `http://localhost:3000/oauth2callback` sebagai *Authorized redirect URI*.  
+5. Salin **Client ID** & **Client Secret** ke file `server.js` (gantikan placeholder).
+
+### d. Jalankan Server
