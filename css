@@ -1,0 +1,42 @@
+/* ────── Reset & Layout ────── */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,Helvetica,sans-serif;background:#fafafa;color:#333;min-height:100vh;}
+header,footer{background:#222;color:#fff;text-align:center;padding:1rem;}
+main{padding:2rem;}
+.section{margin-bottom:4rem;}
+h1{font-size:2rem;}
+h2{font-size:1.8rem;margin-bottom:.5rem;}
+
+/* ────── Gallery ────── */
+#gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
+.photo{overflow:hidden;border-radius:8px;position:relative;}
+.photo img,.photo video{width:100%;transition:transform .3s;}
+.photo:hover img,.photo:hover video{transform:scale(1.1);}
+
+/* ────── Audio ────── */
+#audio-player{width:100%;margin-top:1rem;}
+
+/* ────── Settings Panel ────── */
+#settings{position:fixed;top:0;right:-100%;width:300px;height:100%;background:#fff;box-shadow:-2px 0 5px rgba(0,0,0,.3);transition:right .3s;padding:1rem;overflow-y:auto;}
+#settings.open{right:0;}
+#settings h3{margin-bottom:.5rem;}
+#settings input[type="file"]{width:100%;margin-bottom:.5rem;}
+#settings textarea{width:100%;height:80px;margin-bottom:.5rem;}
+#settings button{margin-top:.5rem;}
+
+/* ────── Background Control ────── */
+#bg-preview{width:100%;height:200px;background:#ddd;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+#bg-preview img,#bg-preview video{max-width:100%;max-height:100%;}
+
+/* ────── Animasi ────── */
+.fade-in{opacity:0;animation:fadeIn 1s forwards;}
+@keyframes fadeIn{to{opacity:1;}}
+
+/* ────── Smooth Scroll ────── */
+html{scroll-behavior:smooth;}
+
+/* ────── Responsive ────── */
+@media(max-width:600px){
+  header{font-size:.9rem;}
+  #settings{width:90%;}
+}
